@@ -51,7 +51,8 @@ background:#a0cf89;
 background:#f67f9a
 }
 
-#clue{
+#clue,
+#answer{
 
 	display: none;
 }
@@ -64,10 +65,21 @@ padding-top:20px;
 	font-size: 22pt;
 }
 
-#selection{
+#selections{
 
 	font-size: 24pt;
 	
 }
 
+#answer input{
+	font-size: 30pt;
+	text-align: center;
+	width:35px;
+}
+
+
+@media ( max-width :500px) {
+
+
+}
 
