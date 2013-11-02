@@ -33,8 +33,10 @@ width:100%;
 
 }
 
-#genre_Westerns,
-#genre_Action{
+
+
+
+#selections div {
 padding-top:10px;
 padding-bottom: 10px; 
 color:#fff;
@@ -43,14 +45,24 @@ cursor: pointer;
 
 }
 
-#genre_Westerns{
+#selections div:nth-child(1) {
 background:#a0cf89;
 }
 
-#genre_Action{
-background:#f67f9a
+#selections div:nth-child(2){
+background:#f67f9a;
 }
 
+#selections div:nth-child(3){
+background:#e57640;
+}
+
+#selections div:nth-child(4){
+background:#e59b4c;
+}
+#selections div:nth-child(5){
+background:#d2b951;
+}
 
 #answer{
 padding-bottom:10px;
