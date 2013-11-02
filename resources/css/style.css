@@ -145,6 +145,9 @@ font-size: 20pt;
 	-webkit-border-radius:5px;
 }
 
+#mt_blank{
+background:#dd694e;
+}
 
 #hints{
 	font-size:14pt;
