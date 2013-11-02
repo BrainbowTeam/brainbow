@@ -232,7 +232,10 @@ $(document).ready(function () {
     function loadCast(castList) {
         if (castList != null) {
             var castNameRole = '';
-            for (var ca = 0; ca < 6; ca++) {
+            var castLength = 6;
+            if (castList.length < castLength)
+                castLength = castList.length;
+            for (var ca = 0; ca < castLength; ca++) {
                 if (ca === 0)
                     castNameRole = castList[ca].name;
                 else {
