@@ -83,16 +83,17 @@ background:#d2b951;
 #answer{
 padding-bottom:10px;
 padding-top:10px; 
-background:#dd694e;
+background:#a0cf89;
 width:100%;
 
 }
 
+#clue{
+background:#f67f9a;
+}
 #clue_label{
 padding-top:10px; 
 padding-bottom:10px;
-background: #ffe0b5;
-
 }
 
 
@@ -146,7 +147,7 @@ font-size: 20pt;
 }
 
 #mt_blank{
-background:#dd694e;
+background:#a0cf89;
 }
 
 #hints{
