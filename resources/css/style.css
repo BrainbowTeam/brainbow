@@ -102,6 +102,7 @@ width:100%;
 
 }
 
+
 #clue{
 background:#f67f9a;
 width: 100%;
@@ -171,6 +172,8 @@ background:#a0cf89;
 #hints{
 	font-size:14pt;
 	font-family: 'Conv_MuseoSans';
+	width: 100%;
+	background: #e57640;
 
 }
 
