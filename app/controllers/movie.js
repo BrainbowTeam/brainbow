@@ -1,57 +1,21 @@
 $(document).ready(function () {
     
-
-
-
-
-     var keywordList = [];
-     $.getJSON("app/stores/keywords.txt", function (data) {
-
-         $.each(data.genres, function (key, val) {
-
-             var queryStr = {
-                 id: val.id,
-                 name: val.name,
-                 type: val.type
-             };
-             
-             keywordList.push(queryStr);
-             
-         });
-
-         for (var i = 0; i < 5; i++) {
-             var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
-             
-             $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
-
-            
-         }
-         $('#selections div').click(function (e) {
-             // fix for firefox to get event click
-             var e = window.event || e;
-             var targ = e.target || e.srcElement;
-             //alert('load my action data');
-             //displayMetaDeta();
-
-             console.log($(targ).html());
-             getMovie($(targ).html());
-         });
-     });
-    
+    var keywordList = [];
     var movieList = [];
 
+    getGenres();
 
     /*countdown timer stuff*/
     function doneCounting(){
-    console.log("done counting");
-    $('#countdown').countdown('destroy');
+        console.log("done counting");
+        $('#countdown').countdown('destroy');
     }
 
     function startCounting(){
-    now=new Date();
-    now.setSeconds(now.getSeconds() + 60);
+        var now = new Date();
+        now.setSeconds(now.getSeconds() + 60);
 
-    $('#countdown').countdown({until: now, format: 'S',compact: true, onExpiry: doneCounting});
+        $('#countdown').countdown({until: now, format: 'S',compact: true, onExpiry: doneCounting});
     }
     
 
@@ -142,9 +106,11 @@ $(document).ready(function () {
 
       for (i=0; i<titleArray.length;i++){
 
-        if(titleArray[i]!=""){
-        $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i]+ '</input>')
-    }
+        if(titleArray[i]!=" "){
+            $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i] + '</input>');  
+        } else {
+            $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '" disabled>' + titleArray[i] + '</input>');
+        }
 
       }
 
@@ -155,7 +121,40 @@ $(document).ready(function () {
     }
 
 
+    function getGenres() {
+        $.getJSON("app/stores/keywords.txt", function (data) {
 
+            $.each(data.genres, function (key, val) {
+
+                var queryStr = {
+                    id: val.id,
+                    name: val.name,
+                    type: val.type
+                };
+
+                keywordList.push(queryStr);
+
+            });
+
+            for (var i = 0; i < 5; i++) {
+                var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
+
+                $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
+
+
+            }
+            $('#selections div').click(function (e) {
+                // fix for firefox to get event click
+                var e = window.event || e;
+                var targ = e.target || e.srcElement;
+                //alert('load my action data');
+                //displayMetaDeta();
+
+                console.log($(targ).html());
+                getMovie($(targ).html());
+            });
+        });
+    }
      function getMovie(genre) {
 
          var apiUrl = 'http://brainbowweb.azurewebsites.net/api/Values?keyword=' + genre;
