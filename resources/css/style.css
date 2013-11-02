@@ -110,6 +110,10 @@ width:100%;
 
 }
 
+footer{
+
+	display: none;
+}
 
 #clue{
 background:#e57640;
