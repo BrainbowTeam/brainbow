@@ -156,7 +156,6 @@ $(document).ready(function () {
     }
     
     function getMovie(genre) {
-        genre = genre.replace(' ', '+');
         var apiUrl = 'http://brainbowrovicloud.azurewebsites.net/api/Values?typeofsearch=movie&filtercriteria=' + genre;
         $.ajax({
             url: apiUrl,
@@ -173,22 +172,21 @@ $(document).ready(function () {
 
                 $.each(data.searchResponse.results, function (key, val) {
                     var queryStr = {
-                        'MasterTitle': val.video.masterTitle,
-                        'castUri': val.video.castUri
+                        'MasterTitle': val.movie.title,
+                        'castUri': val.movie.castUri
                     };
                     //alert('This is live title from API: ' + queryStr.MasterTitle);
                     movieList.push(queryStr);
                 });
 
                 console.log(movieList);
-                alert(movieList[0].MasterTtile);
+                alert(movieList[0].MasterTitle);
                 //display meta data
 
                 displayMetaDeta();
                 //$('#answer').html(queryStr.MasterTitle);
                 $('#clue_label').html(movieList[0].castUri);
                 createInputs(movieList[0]);
-
 
             }
         });
