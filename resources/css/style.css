@@ -137,10 +137,13 @@ padding-top:20px;
 @media ( max-width :500px) {
 	#selections{
 
-	font-size: 20pt;
+	font-size: 18pt;
 	
 }
 
+#user_messages{
+	font-size: 20pt;
+}
 
 }
 
