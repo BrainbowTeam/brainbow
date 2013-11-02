@@ -126,6 +126,8 @@ color: #359c42;
 padding-top:10px; 
 padding-bottom:10px;
 width: 100%;
+position: absolute;
+top: 148px;
 
 
 }
@@ -185,7 +187,12 @@ background:#a0cf89;
 
 }
 
+
+
+
+
 /*display none group*/
+#loader,
 #hints,
 #correct,
 #clue,
