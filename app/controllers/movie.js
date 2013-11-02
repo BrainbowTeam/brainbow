@@ -17,6 +17,7 @@
 
          for (var i = 0; i < 5; i++) {
              var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
+             
              $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
 
             $('#selections div').click(function(e) {
@@ -54,27 +55,28 @@
      
      
     
-    //$.ajax({
-    //    url: 'http://www.google.com',
-    //    success: function (data) {
+    $.ajax({
+        url: 'http://brainbowweb.azurewebsites.net/api/Values/12',
+        success: function (data) {
 
-    //        console.log(data);
+            console.log(data);
 
-    //        /*
+            /*
 
-    //         //add mso list to dropdown
-    //            $.each("data path goes here", function(index, value) {
-    //                $('#mylist').append(
-    //                        '<option value="' + this.id + '">'
-    //                        + this.name + '</div>')
-    //            });
+             //add mso list to dropdown
+                $.each("data path goes here", function(index, value) {
+                    $('#mylist').append(
+                            '<option value="' + this.id + '">'
+                            + this.name + '</div>')
+                });
 
-    //            $('#mylist').show();*/
-
-    //    },
-    //    error: function (data) {
-    //        alert("Unfortunately, we have run into an issue, please contact the help desk");
-    //    }
-    //});
+                $('#mylist').show();*/
+            
+            alert("This was success");
+        },
+        error: function (data) {
+            alert("Unfortunately, we have run into an issue, please contact the help desk");
+        }
+    });
     
 });
