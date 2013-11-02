@@ -189,6 +189,11 @@ background:#a0cf89;
 
 	}
 
+
+#answer input#mt_blank{
+width:20px;
+}	
+
 #hints{
 	font-size:12pt;
 	font-family: 'Conv_MuseoSans';
