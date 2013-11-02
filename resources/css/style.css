@@ -110,10 +110,7 @@ width:100%;
 
 }
 
-footer{
 
-	display: none;
-}
 
 #clue{
 background:#e57640;
@@ -165,7 +162,7 @@ footer{
 	display: block;
 	height:40px;
 	text-align: center;
-	background: #d2b951;
+	background: none;
 }
 
 #show_answer,
