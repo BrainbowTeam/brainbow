@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var keywordList = [];
     var movieList = [];
+    var messageList = [];
 
     var isMobile = {
         Android: function () {
@@ -23,9 +24,17 @@ $(document).ready(function () {
             return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
         }
     };
+    window.addEventListener("load", function() {
+        // Set a timeout...
+        setTimeout(function() {
+            // Hide the address bar!
+            window.scrollTo(0, 1);
+        }, 0);
+    });
 
     getGenres();
-
+    getMessages();
+    
     /*countdown timer stuff*/
     function doneCounting() {
         console.log("done counting");
@@ -61,22 +70,16 @@ $(document).ready(function () {
     }
 
 
-    /**** Show correct message and populate answer
-   function showCorrect(){
-   $('#correct').show();
+    
+    function showCorrect() {
+        var rand = messageList[Math.floor(Math.random() * messageList.length)];
+        $('#correct').show();
 
 
-   $('#correct_label').html('You are Correct!');
+        $('#correct_label').html(rand.name);
 
-   }
+    }
 
-   /**** Check text as user inputs
-   $( "input" ).keyup(function() {
-        console.log("i changed value");
-
-      // checkAnswer();
-
-   });*/
 
     /* display Movie info and hide genre choices*/
 
@@ -159,7 +162,19 @@ $(document).ready(function () {
             });
         });
     }
-    
+
+    function getMessages() {
+        $.getJSON("app/stores/messages.txt", function (data) {
+
+            $.each(data.messages, function (key, val) {
+
+                messageList.push(val);
+
+            });
+        });
+    }
+
+
     function getMovie(genre) {
         var apiUrl = 'http://brainbowrovicloud.azurewebsites.net/api/Values?typeofsearch=movie&filtercriteria=' + genre;
         $.ajax({
@@ -208,7 +223,7 @@ $(document).ready(function () {
         var titleArray = queryStr.MasterTitle.split("");
 
         console.log(titleArray.length);
-
+        $('#answer input').remove();
         for (var i = 0; i < titleArray.length; i++) {
 
             if (titleArray[i] != " ") {
@@ -226,6 +241,20 @@ $(document).ready(function () {
                 }
             }
         }
+        $(':input').autotab_magic();
+        var maxchars = 1;
+        $(':input').keydown(function (e) {
+            if ($(this).val().length >= 2) {
+                $(this).val($(this).val().substr(0, maxchars));
+            }
+        });
+
+        $(':input').keyup(function (e) {
+            if ($(this).val().length >= 2) {
+                $(this).val($(this).val().substr(0, maxchars));
+            }
+            validateInput(this);
+        });
     }
 
     function loadCast(castList) {
@@ -246,21 +275,36 @@ $(document).ready(function () {
     }
 
 //auto-tab inputs
-    $(':input').autotab_magic();
-    var maxchars = 1;
-    $('#input').keydown(function(e) {
-        if ($(this).val().length >= 2) {
-            $(this).val($(this).val().substr(0, maxchars));
-        }
-    });
-
-    $('#input').keyup(function(e) {
-        if ($(this).val().length >= 2) {
-            $(this).val($(this).val().substr(0, maxchars));
-        }
-    });
-
     
+    function validateInput(input) {
+        var arrayId = input.id.replace('mt_', '');
+        var inputValue = input.value;        
+        var originalValue = movieList[0].MasterTitle.split("")[arrayId];
+        
+        if(inputValue.toString().toLowerCase() === originalValue.toString().toLowerCase()) {
+            $(input).css("background-color", '#98ACC8');
+            $(input).css("color", '#fff');
+        } else {
+            $(input).css("background-color", '#fff');
+            $(input).css("color", '#F00');
+        }
+        checkAnswer();
+    }
 
-
+    function checkAnswer() {
+        var inputs = $('#answer input');
+        var allInputsValid = true;
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].id != "mt_blank") {
+                var color = $(inputs[i]).css("background-color");
+                if (color != 'rgb(152, 172, 200)') {
+                    allInputsValid = false;
+                    break;
+                }
+            }
+        }
+        if (allInputsValid === true) {
+            showCorrect();
+        }
+    }
 });
