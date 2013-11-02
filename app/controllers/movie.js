@@ -57,6 +57,7 @@ $(document).ready(function () {
         $('#correct').hide();
         $('#hints').hide();
         $('#nav_button').hide();
+        $('#selected_genre').hide();
     }
 
 
@@ -99,15 +100,19 @@ $(document).ready(function () {
         $('#correct').show();
         $('#hints').show();
         $('#nav_button').show();
+        $('#selected_genre').show();
 
         $('#hints').html('hint: my cast is...');
         $('#nav_button').html('next');
         $('#clue_label').html('cast info goes here');
+        $('#selected_genre').html(pickedGenre);
 
         $('#nav_button').click(function (e) {
             // fix for firefox to get event click
             var e = window.event || e;
             var targ = e.target || e.srcElement;
+
+
 
             resetToGenre();
 
@@ -150,6 +155,7 @@ $(document).ready(function () {
                 //displayMetaDeta();
 
                 console.log($(targ).html());
+                pickedGenre=targ.html();
                 getMovie($(targ)[0].id);
             });
         });
