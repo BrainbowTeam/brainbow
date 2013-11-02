@@ -107,6 +107,7 @@ width:100%;
 background:#f67f9a;
 width: 100%;
 }
+
 #clue_label{
 padding-top:10px; 
 padding-bottom:10px;
@@ -170,14 +171,17 @@ background:#a0cf89;
 }
 
 #hints{
+	padding-top: 5px;
+	padding-bottom: 5px;
 	font-size:14pt;
 	font-family: 'Conv_MuseoSans';
 	width: 100%;
-	background: #e57640;
+	background: #f67f9a;
 
 }
 
 /*display none group*/
+#hints,
 #correct,
 #clue,
 #answer,
