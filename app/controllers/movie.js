@@ -258,7 +258,7 @@ $(document).ready(function () {
 
         console.log(titleArray.length);
         $('#answer input').remove();
-        $('#answer input').removeClass();
+        $('#answer br').remove();
         for (var i = 0; i < titleArray.length; i++) {
 
             if (titleArray[i] != " ") {
@@ -273,13 +273,10 @@ $(document).ready(function () {
 
             } else {
 
-                //if(jQuery.browser.mobile){
                 if (isMobile.any()) {
-
                     $('#answer').append('</br>');
-
                 }
-                $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
+                $('#answer').append('<input type="text" maxlength="1" id="mt_blank" style="background:#a0cf89;" disabled>' + titleArray[i] + '</input>');
 
             }
         }
