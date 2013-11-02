@@ -60,8 +60,13 @@ width:100%;
 
 }
 
+#clue_label{
+padding-top:10px; 
+padding-bottom:10px;
+background: #ffe0b5;
 
-
+}
+#correct,
 #clue,
 #answer{
 
@@ -69,6 +74,15 @@ width:100%;
 }
 
 
+#correct_label{
+font-family: 'Conv_Cooper';
+font-size:30pt;
+color: #359c42;
+padding-top:10px; 
+padding-bottom:10px;
+
+
+}
 
 #user_messages{
 font-family: 'Conv_Cooper';
@@ -83,6 +97,9 @@ padding-top:20px;
 	font-size: 24pt;
 	
 }
+
+
+
 
 #answer input{
 	font-size: 30pt;
