@@ -1,6 +1,10 @@
 
 $(document).ready(function(){
 
+
+$(':input').autotab_magic();
+
+
 var youAreCorrect=false;
 
 
@@ -19,6 +23,7 @@ $( "input" ).keyup(function() {
  console.log("i changed value");
 
 checkAnswer();
+
 });
 
 
