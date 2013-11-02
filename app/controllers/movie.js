@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-   
+    
      var keywordList = [];
      $.getJSON("app/stores/keywords.txt", function (data) {
 
@@ -28,55 +28,37 @@
                 //displayMetaDeta();
 
                 console.log($(targ).html());
-                
-
+                getMovie($(targ).html());
             });
-
          }
-         
-
      });
     
     var movieList = [];
-     $.getJSON("app/stores/movie.txt", function (data) {
-         var items = [];
-         
-         $.each(data.searchResponse.results, function (key, val) {
-             items.push("<li id='" + key + "'>" + val.video.masterTitle + ":" + val.video.castUri + "</li>");
-             var queryStr = {
-                 'MasterTitle': val.video.masterTitle,
-                 'castUri': val.video.castUri
-             };
-             movieList.push(queryStr);
+
+
+     function getMovie(genre) {
+
+         var apiUrl = 'http://brainbowweb.azurewebsites.net/api/Values?keyword=' + genre;
+         $.ajax({
+             url: apiUrl,
+             dataType: 'jsonp',
+             crossDomain: true,
+             error: function(e) {
+                 console.log(e.message);
+             },
+             success: function(data) {
+
+                 movieList = [];
+
+                 $.each(data.searchResponse.results, function(key, val) {
+                     var queryStr = {
+                         'MasterTitle': val.video.masterTitle,
+                         'castUri': val.video.castUri
+                     };
+                     alert('This is live title from API: ' + queryStr.MasterTitle);
+                     movieList.push(queryStr);
+                 });
+             }
          });
-
-     });
-
-     
-     
-    
-    $.ajax({
-        url: 'http://brainbowweb.azurewebsites.net/api/Values/12',
-        success: function (data) {
-
-            console.log(data);
-
-            /*
-
-             //add mso list to dropdown
-                $.each("data path goes here", function(index, value) {
-                    $('#mylist').append(
-                            '<option value="' + this.id + '">'
-                            + this.name + '</div>')
-                });
-
-                $('#mylist').show();*/
-            
-            alert("This was success");
-        },
-        error: function (data) {
-            alert("Unfortunately, we have run into an issue, please contact the help desk");
-        }
-    });
-    
+     }
 });
