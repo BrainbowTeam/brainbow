@@ -211,6 +211,7 @@ $(document).ready(function () {
             crossDomain: true,
             error: function (e) {
                 console.log(e.message);
+                getMovie(genre);
             },
             success: function (data) {
 
@@ -261,11 +262,14 @@ $(document).ready(function () {
 
             if (titleArray[i] != " ") {
                 var inputString = '';
-                inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
-                $('#answer').append(inputString);
                 if (isAlphaNumeric(titleArray[i]) === false) {
-                    $('#answer input#mt_' + i).val = titleArray[i];
+                    inputString = '<input type="text" maxlength="1" id="mt_' + i + '" style="background-color:#98ACC8; color:#fff;" value="' + titleArray[i] + '"></input>';
+                } else {
+                    inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
                 }
+                
+                $('#answer').append(inputString);
+                
             } else {
 
                 //if(jQuery.browser.mobile){
