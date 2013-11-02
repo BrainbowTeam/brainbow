@@ -107,9 +107,9 @@ $(document).ready(function () {
       for (i=0; i<titleArray.length;i++){
 
         if(titleArray[i]!=" "){
-            $('#answer').append('<input type="text" maxlength="1" id="mt_blank">' + titleArray[i] + '</input>');  
+            $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i] + '</input>');  
         } else {
-            $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '" disabled>' + titleArray[i] + '</input>');
+            $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
         }
 
       }
