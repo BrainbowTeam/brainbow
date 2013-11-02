@@ -156,15 +156,29 @@ padding-top:20px;
 	
 }
 
+footer{
+	position: relative;
+	display: block;
+	height:40px;
+	text-align: center;
+	background: #d2b951;
+}
+
 #show_answer,
 #nav_button{
 font-family: 'Londrina Shadow', cursive;
 font-size: 20pt;
 	cursor: pointer;
-	float: right;
-	padding-right: 20px
+	float:left;
+	color: #fff;
+	width: 200px;
 }
 
+#buttons{
+
+	margin-left: auto;
+	margin-left: auto
+}
 
 #answer input{
 	margin: 1px;
