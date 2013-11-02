@@ -118,13 +118,13 @@ $(document).ready(function () {
             $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i] + '</input>');  
         } else {
             
-            if(jQuery.browser.mobile){
+           /* if(jQuery.browser.mobile){
 
             $('#answer').append('</br>');
 
-            }else{
+            }else{*/
             $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
-            }
+            //}
 
         }
 
