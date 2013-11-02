@@ -228,7 +228,7 @@ $(document).ready(function () {
                 if (movieList[randId].castList != null) {
                     console.log(movieList);
 
-                    alert(movieList[randId].MasterTitle);
+                   // alert(movieList[randId].MasterTitle);
                     //display meta data
 
                     displayMetaDeta();
