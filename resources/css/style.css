@@ -28,7 +28,11 @@ height:100%;
 	font-style: normal;
 }
 
-
+input[type="text"]{
+   -moz-box-sizing:    border-box;
+   -webkit-box-sizing: border-box;
+    box-sizing:        border-box;
+}
 
 
 header{
