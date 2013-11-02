@@ -258,6 +258,7 @@ $(document).ready(function () {
 
         console.log(titleArray.length);
         $('#answer input').remove();
+        $('#answer input').removeClass();
         for (var i = 0; i < titleArray.length; i++) {
 
             if (titleArray[i] != " ") {
@@ -267,9 +268,9 @@ $(document).ready(function () {
                 } else {
                     inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
                 }
-                
+
                 $('#answer').append(inputString);
-                
+
             } else {
 
                 //if(jQuery.browser.mobile){
@@ -277,9 +278,9 @@ $(document).ready(function () {
 
                     $('#answer').append('</br>');
 
-                } else {
-                    $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
                 }
+                $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
+
             }
         }
         $(':input').autotab_magic();
@@ -353,19 +354,15 @@ $(document).ready(function () {
     }
 
     function displayAnswer() {
-        var inputs = $('#answer input');   
+        var inputs = $('#answer input');        
+        var allInputsValid = true;
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
-            if (isMobile.any()) {
+            
+            if (input.id != "mt_blank") {
                 $(input).css("background-color", '#98ACC8');
                 $(input).css("color", '#fff');
                 input.value = movieList[0].MasterTitle.split("")[i];
-            } else {
-                if (input.id != "mt_blank") {
-                    $(input).css("background-color", '#98ACC8');
-                    $(input).css("color", '#fff');
-                    input.value = movieList[0].MasterTitle.split("")[i];
-                }
             }
         }
     }
