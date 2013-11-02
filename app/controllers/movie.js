@@ -180,13 +180,14 @@ $(document).ready(function () {
                 });
 
                 console.log(movieList);
-                alert(movieList[0].MasterTitle);
+                var randId = Math.floor(Math.random() * movieList.length);
+                alert(movieList[randId].MasterTitle);
                 //display meta data
 
                 displayMetaDeta();
                 //$('#answer').html(queryStr.MasterTitle);
-                $('#clue_label').html(movieList[0].castUri);
-                createInputs(movieList[0]);
+                $('#clue_label').html(movieList[randId].castUri);
+                createInputs(movieList[randId]);
 
             }
         });
