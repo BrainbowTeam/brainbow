@@ -144,6 +144,7 @@ font-size: 20pt;
 	border-radius: 5px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
+	-webkit-appearance:none;
 }
 
 #mt_blank{
