@@ -87,7 +87,7 @@ $(document).ready(function () {
         //moviename and cast list and hint  
 
         //start counting
-        startCounting();
+        //startCounting();
 
         //hide selections
         $('#selections').hide();
@@ -179,7 +179,7 @@ $(document).ready(function () {
                 $.each(data.searchResponse.results, function (key, val) {
                     var queryStr = {
                         'MasterTitle': val.movie.title,
-                        'castUri': val.movie.castUri
+                        'castList': val.movie.cast
                     };
                     //alert('This is live title from API: ' + queryStr.MasterTitle);
                     movieList.push(queryStr);
@@ -194,7 +194,11 @@ $(document).ready(function () {
                 //$('#answer').html(queryStr.MasterTitle);
                 $('#clue_label').html(movieList[randId].castUri);
                 createInputs(movieList[randId]);
-
+                if (movieList[randId].castList != null)
+                    loadCast(movieList[randId].castList);
+                else
+                    getMovie(genre);
+                
             }
         });
     }
@@ -209,7 +213,6 @@ $(document).ready(function () {
         for (var i = 0; i < titleArray.length; i++) {
 
             if (titleArray[i] != " ") {
-                //var inputString = '<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i] + '</input>';
                 var inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
                 $('#answer').append(inputString);
             } else {
@@ -222,28 +225,40 @@ $(document).ready(function () {
                 } else {
                     $('#answer').append('<input type="text" maxlength="1" id="mt_blank" disabled>' + titleArray[i] + '</input>');
                 }
-
             }
-
         }
-
-
-        //auto-tab inputs
-        $(':input').autotab_magic();
-        var maxchars = 1;
-        $('#input').keydown(function (e) {
-            if ($(this).val().length >= 2) {
-                $(this).val($(this).val().substr(0, maxchars));
-            }
-        });
-
-        $('#input').keyup(function (e) {
-            if ($(this).val().length >= 2) {
-                $(this).val($(this).val().substr(0, maxchars));
-            }
-        });
-
     }
+
+    function loadCast(castList) {
+        if (castList != null) {
+            var castNameRole = '';
+            for (var ca = 0; ca < 6; ca++) {
+                if (ca === 0)
+                    castNameRole = castList[ca].name;
+                else {
+                    castNameRole = castNameRole + ', ' + castList[ca].name;
+                }
+            }
+            $('#clue_label').append('<div id="castmember_' + ca + '">' + castNameRole + '</div>');
+        }
+    }
+
+//auto-tab inputs
+    $(':input').autotab_magic();
+    var maxchars = 1;
+    $('#input').keydown(function(e) {
+        if ($(this).val().length >= 2) {
+            $(this).val($(this).val().substr(0, maxchars));
+        }
+    });
+
+    $('#input').keyup(function(e) {
+        if ($(this).val().length >= 2) {
+            $(this).val($(this).val().substr(0, maxchars));
+        }
+    });
+
+    
 
 
 });
