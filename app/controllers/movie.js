@@ -317,6 +317,7 @@ $(document).ready(function () {
         }
     }
 
+
 //auto-tab inputs
     
     function validateInput(input) {
@@ -352,14 +353,19 @@ $(document).ready(function () {
     }
 
     function displayAnswer() {
-        var inputs = $('#answer input');        
-        var allInputsValid = true;
+        var inputs = $('#answer input');   
         for (var i = 0; i < inputs.length; i++) {
             var input = inputs[i];
-            if (input.id != "mt_blank") {
+            if (isMobile.any()) {
                 $(input).css("background-color", '#98ACC8');
                 $(input).css("color", '#fff');
                 input.value = movieList[0].MasterTitle.split("")[i];
+            } else {
+                if (input.id != "mt_blank") {
+                    $(input).css("background-color", '#98ACC8');
+                    $(input).css("color", '#fff');
+                    input.value = movieList[0].MasterTitle.split("")[i];
+                }
             }
         }
     }
