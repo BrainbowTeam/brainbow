@@ -131,6 +131,7 @@ font-size: 20pt;
 
 
 #answer input{
+	margin: 1px;
 	font-family:'Londrina Shadow', cursive;
 	font-size: 30pt;
 	text-align: center;
@@ -139,7 +140,9 @@ font-size: 20pt;
 	border-color: #fff;
 	border-style:none;
 	border: 0px;
-	background: #eded43;
+	border-radius: 5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
 }
 
 
