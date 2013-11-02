@@ -169,6 +169,14 @@ font-size: 20pt;
 	
 }
 
+#answer input{
+
+	font-size: 24pt;
+	text-align: center;
+	width:25px;
+
+	}
+
 #hints{
 	font-size:12pt;
 	font-family: 'Conv_MuseoSans';
