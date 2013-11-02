@@ -238,7 +238,7 @@ $(document).ready(function () {
                 if (ca === 0)
                     castNameRole = castList[ca].name;
                 else {
-                    castNameRole = castNameRole + ', ' + castList[ca].name;
+                    castNameRole = castNameRole + ' ● ' + castList[ca].name;
                 }
             }
             $('#clue_label').append('<div id="castmember_' + ca + '">' + castNameRole + '</div>');
