@@ -181,6 +181,7 @@ $(document).ready(function () {
                 });
 
                 console.log(movieList);
+                alert(movieList[0].MasterTtile);
                 //display meta data
 
                 displayMetaDeta();
