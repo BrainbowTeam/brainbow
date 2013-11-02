@@ -67,6 +67,7 @@ $(document).ready(function () {
         $('#correct_label').hide();
         $('#hints').hide();
         $('#nav_button').hide();
+        $('footer').hide();
         $('#show_answer').hide();
         $('#selected_genre').hide();
         //getGenres();
@@ -107,6 +108,7 @@ $(document).ready(function () {
         $('#correct_label').show();
         $('#hints').show();
         $('#nav_button').show();
+        $('footer').show();
         $('#selected_genre').show();
          $('#show_answer').show();
 
@@ -258,8 +260,12 @@ $(document).ready(function () {
         for (var i = 0; i < titleArray.length; i++) {
 
             if (titleArray[i] != " ") {
-                var inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
+                var inputString = '';
+                inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
                 $('#answer').append(inputString);
+                if (isAlphaNumeric(titleArray[i]) === false) {
+                    $('#answer input#mt_' + i).val = titleArray[i];
+                }
             } else {
 
                 //if(jQuery.browser.mobile){
@@ -352,5 +358,15 @@ $(document).ready(function () {
                 input.value = movieList[0].MasterTitle.split("")[i];
             }
         }
+    }
+    
+    function isAlphaNumeric(x) {
+        
+        var regex = /^[a-zA-Z0-9]+$/g;
+
+        if (regex.test(x)) {
+            return true;
+        } else
+            return false;
     }
 });
