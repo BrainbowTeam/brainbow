@@ -102,7 +102,7 @@ $(document).ready(function () {
         $('#nav_button').show();
         $('#selected_genre').show();
 
-        $('#hints').html('hint: the cast in:');
+        $('#hints').html('hint: the cast:');
         $('#nav_button').html('next');
         $('#clue_label').html('cast info goes here');
         $('#selected_genre').html(pickedGenre);
