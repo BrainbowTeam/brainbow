@@ -12,8 +12,14 @@
              };
              
              keywordList.push(queryStr);
-             $('#selections').append('<div id="'+ val.id +'">'+ val.name +'</div>');
+             
          });
+
+         for (var i = 0; i < 5; i++) {
+             var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
+             $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
+         }
+         
 
      });
     

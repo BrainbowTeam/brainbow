@@ -30,16 +30,8 @@
         "name": "Adventure",
         "type": "Movie Genre"
     }, {
-        "id": "D   658",
-        "name": "Avant-garde / Experimental",
-        "type": "Movie Genre"
-    }, {
         "id": "D  1015",
-        "name": "Business [nf]",
-        "type": "Movie Genre"
-    }, {
-        "id": "D   660",
-        "name": "Children's/Family",
+        "name": "Business",
         "type": "Movie Genre"
     }, {
         "id": "D   648",
@@ -55,11 +47,11 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1659",
-        "name": "Culture & Society  [nf]",
+        "name": "Culture & Society ",
         "type": "Movie Genre"
     }, {
         "id": "D   669",
-        "name": "Dance [nf]",
+        "name": "Dance",
         "type": "Movie Genre"
     }, {
         "id": "D   649",
@@ -67,7 +59,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1279",
-        "name": "Education [nf]",
+        "name": "Education",
         "type": "Movie Genre"
     }, {
         "id": "D   657",
@@ -75,7 +67,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1035",
-        "name": "Family & Personal Relationships [nf]",
+        "name": "Family & Personal Relationships",
         "type": "Movie Genre"
     }, {
         "id": "D   650",
@@ -83,11 +75,11 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1661",
-        "name": "Film, TV & Radio [nf]",
+        "name": "Film, TV & Radio",
         "type": "Movie Genre"
     }, {
         "id": "D  1047",
-        "name": "Health & Fitness [nf]",
+        "name": "Health & Fitness",
         "type": "Movie Genre"
     }, {
         "id": "D   685",
@@ -95,7 +87,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1055",
-        "name": "History [nf]",
+        "name": "History",
         "type": "Movie Genre"
     }, {
         "id": "D   654",
@@ -103,15 +95,15 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1660",
-        "name": "Language & Literature [nf]",
+        "name": "Language & Literature",
         "type": "Movie Genre"
     }, {
         "id": "D  1063",
-        "name": "Leisure Arts [nf]",
+        "name": "Leisure Arts",
         "type": "Movie Genre"
     }, {
         "id": "D  1776",
-        "name": "Music [nf]",
+        "name": "Music",
         "type": "Movie Genre"
     }, {
         "id": "D   655",
@@ -123,15 +115,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1075",
-        "name": "Nature [nf]",
-        "type": "Movie Genre"
-    }, {
-        "id": "D  3403",
-        "name": "News [TV]",
-        "type": "Movie Genre"
-    }, {
-        "id": "D  3159",
-        "name": "Reality Show [TV]",
+        "name": "Nature",
         "type": "Movie Genre"
     }, {
         "id": "D   948",
@@ -139,7 +123,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1094",
-        "name": "Science & Technology [nf]",
+        "name": "Science & Technology",
         "type": "Movie Genre"
     }, {
         "id": "D   652",
@@ -147,11 +131,11 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1085",
-        "name": "Spirituality & Philosophy [nf]",
+        "name": "Spirituality & Philosophy",
         "type": "Movie Genre"
     }, {
         "id": "D  1101",
-        "name": "Sports & Recreation [nf]",
+        "name": "Sports & Recreation",
         "type": "Movie Genre"
     }, {
         "id": "D   515",
@@ -159,7 +143,7 @@
         "type": "Movie Genre"
     }, {
         "id": "D   672",
-        "name": "Theater [nf]",
+        "name": "Theater",
         "type": "Movie Genre"
     }, {
         "id": "D   942",
@@ -167,11 +151,11 @@
         "type": "Movie Genre"
     }, {
         "id": "D  1109",
-        "name": "Travel [nf]",
+        "name": "Travel",
         "type": "Movie Genre"
     }, {
         "id": "D  1012",
-        "name": "Visual Arts [nf]",
+        "name": "Visual Arts",
         "type": "Movie Genre"
     }, {
         "id": "D   947",
