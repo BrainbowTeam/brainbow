@@ -64,9 +64,11 @@ $(document).ready(function () {
         $('#clue').hide();
         $('#answer').hide();
         $('#correct').hide();
+        $('#correct_label').hide();
         $('#hints').hide();
         $('#nav_button').hide();
         $('#selected_genre').hide();
+        //getGenres();
     }
 
 
@@ -75,7 +77,7 @@ $(document).ready(function () {
         var rand = messageList[Math.floor(Math.random() * messageList.length)];
         $('#correct').show();
 
-
+        $('#correct_label').show();
         $('#correct_label').html(rand.name);
 
     }
@@ -101,6 +103,7 @@ $(document).ready(function () {
         $('#clue').show();
         $('#answer').show();
         $('#correct').show();
+        $('#correct_label').show();
         $('#hints').show();
         $('#nav_button').show();
         $('#selected_genre').show();
@@ -115,13 +118,14 @@ $(document).ready(function () {
             var targ = e.target || e.srcElement;
 
 
-
             resetToGenre();
+            getGenres();
 
         });
     }
 
     function getGenres() {
+        $('#selections div').remove();
         $.getJSON("app/stores/keywords.txt", function (data) {
 
             $.each(data.genres, function (key, val) {
@@ -155,10 +159,15 @@ $(document).ready(function () {
                 var targ = e.target || e.srcElement;
                 //alert('load my action data');
                 //displayMetaDeta();
-
+                $('#loader').show();
+                //hide selections
+                $('#selections').hide();
+                $('#user_messages').hide();
+                
                 console.log($(targ).html());
                 pickedGenre=$(targ).html();
                 getMovie($(targ)[0].id);
+                
             });
         });
     }
@@ -198,19 +207,23 @@ $(document).ready(function () {
                     //alert('This is live title from API: ' + queryStr.MasterTitle);
                     movieList.push(queryStr);
                 });
-
-                console.log(movieList);
                 var randId = 0;
-                alert(movieList[randId].MasterTitle);
-                //display meta data
+                if (movieList[randId].castList != null) {
+                    console.log(movieList);
 
-                displayMetaDeta();
-                //$('#answer').html(queryStr.MasterTitle);
-                $('#clue_label').html(movieList[randId].castUri);
-                createInputs(movieList[randId]);
-                if (movieList[randId].castList != null)
+                    alert(movieList[randId].MasterTitle);
+                    //display meta data
+
+                    displayMetaDeta();
+                    //$('#answer').html(queryStr.MasterTitle);
+                    $('#clue_label').html(movieList[randId].castUri);
+                    createInputs(movieList[randId]);
+
                     loadCast(movieList[randId].castList);
-                else
+                    
+                    $('#loader').hide();
+                    $('#correct_label').hide();
+                } else
                     getMovie(genre);
                 
             }
@@ -263,14 +276,16 @@ $(document).ready(function () {
             var castLength = 6;
             if (castList.length < castLength)
                 castLength = castList.length;
+            $('#clue_label div').remove();
             for (var ca = 0; ca < castLength; ca++) {
                 if (ca === 0)
-                    castNameRole = castList[ca].name;
+                    castNameRole = '<td id="cast" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
                 else {
-                    castNameRole = castNameRole + ' ● ' + castList[ca].name;
+                    castNameRole = castNameRole + ' ● ' + '<td id="cast" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
                 }
-            }
+            }            
             $('#clue_label').append('<div id="castmember_' + ca + '">' + castNameRole + '</div>');
+            
         }
     }
 
@@ -305,6 +320,19 @@ $(document).ready(function () {
         }
         if (allInputsValid === true) {
             showCorrect();
+        }
+    }
+
+    function displayAnswer() {
+        var inputs = $('#answer input');        
+        var allInputsValid = true;
+        for (var i = 0; i < inputs.length; i++) {
+            var input = inputs[i];
+            if (input.id != "mt_blank") {
+                $(input).css("background-color", '#98ACC8');
+                $(input).css("color", '#fff');
+                input.value = movieList[0].MasterTitle.split("")[i];
+            }
         }
     }
 });
