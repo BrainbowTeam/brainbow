@@ -152,12 +152,18 @@ $(document).ready(function () {
 
             });
 
-            for (var i = 0; i < 5; i++) {
+            var count = 1;
+            var displayList = [];
+            for (var i = 0; i < keywordList.length; i++) {
                 var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
+                if ($.inArray(rand, displayList) === -1) {
+                    displayList.push(rand);
+                    $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
+                    count = count + 1;
+                }
 
-                $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
-
-
+                if (count > 5)
+                    break;
             }
             $('#selections div').click(function (e) {
                 // fix for firefox to get event click
