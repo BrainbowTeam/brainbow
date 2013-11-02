@@ -20,17 +20,18 @@
              
              $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
 
-            $('#selections div').click(function(e) {
-                // fix for firefox to get event click
-                var e = window.event || e;
-                var targ = e.target || e.srcElement;
-                //alert('load my action data');
-                //displayMetaDeta();
-
-                console.log($(targ).html());
-                getMovie($(targ).html());
-            });
+            
          }
+         $('#selections div').click(function (e) {
+             // fix for firefox to get event click
+             var e = window.event || e;
+             var targ = e.target || e.srcElement;
+             //alert('load my action data');
+             //displayMetaDeta();
+
+             console.log($(targ).html());
+             getMovie($(targ).html());
+         });
      });
     
     var movieList = [];
