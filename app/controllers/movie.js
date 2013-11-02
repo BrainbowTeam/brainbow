@@ -67,6 +67,7 @@ $(document).ready(function () {
         $('#correct_label').hide();
         $('#hints').hide();
         $('#nav_button').hide();
+        $('#show_answer').hide();
         $('#selected_genre').hide();
         //getGenres();
     }
@@ -107,9 +108,13 @@ $(document).ready(function () {
         $('#hints').show();
         $('#nav_button').show();
         $('#selected_genre').show();
+         $('#show_answer').show();
 
         $('#hints').html('the cast:');
         $('#nav_button').html('next');
+        $('#show_answer').html('show answer');
+
+
         $('#selected_genre').html(pickedGenre);
 
         $('#nav_button').click(function (e) {
@@ -122,6 +127,17 @@ $(document).ready(function () {
             getGenres();
 
         });
+
+    $('#show_answer').click(function (e) {
+            // fix for firefox to get event click
+            var e = window.event || e;
+            var targ = e.target || e.srcElement;
+
+            displayAnswer();
+
+        });
+
+
     }
 
     function getGenres() {
@@ -166,6 +182,7 @@ $(document).ready(function () {
                 
                 console.log($(targ).html());
                 pickedGenre=$(targ).html();
+
                 getMovie($(targ)[0].id);
                 
             });
@@ -221,6 +238,7 @@ $(document).ready(function () {
 
                     loadCast(movieList[randId].castList);
                     
+
                     $('#loader').hide();
                     $('#correct_label').hide();
                 } else
