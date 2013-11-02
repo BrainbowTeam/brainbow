@@ -106,6 +106,8 @@ width:100%;
 #clue{
 background:#e57640;
 width: 100%;
+font-size: 24pt;
+color:#fff; 
 }
 
 #clue_label{
