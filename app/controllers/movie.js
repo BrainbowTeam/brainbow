@@ -155,7 +155,7 @@ $(document).ready(function () {
                 //displayMetaDeta();
 
                 console.log($(targ).html());
-                pickedGenre=targ.html();
+                pickedGenre=$(targ).html();
                 getMovie($(targ)[0].id);
             });
         });
@@ -186,7 +186,7 @@ $(document).ready(function () {
                 });
 
                 console.log(movieList);
-                var randId = Math.floor(Math.random() * movieList.length);
+                var randId = 0;
                 alert(movieList[randId].MasterTitle);
                 //display meta data
 
