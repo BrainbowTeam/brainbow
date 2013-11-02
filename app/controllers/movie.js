@@ -112,15 +112,89 @@ $(document).ready(function () {
             resetToGenre();
 
         });
-
-
     }
 
+    function getGenres() {
+        $.getJSON("app/stores/keywords.txt", function (data) {
+
+            $.each(data.genres, function (key, val) {
+
+                var queryStr = {
+                    id: val.id,
+                    name: val.name,
+                    type: val.type
+                };
+
+                keywordList.push(queryStr);
+
+            });
+
+            var count = 1;
+            var displayList = [];
+            for (var i = 0; i < keywordList.length; i++) {
+                var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
+                if ($.inArray(rand, displayList) === -1) {
+                    displayList.push(rand);
+                    $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
+                    count = count + 1;
+                }
+
+                if (count > 5)
+                    break;
+            }
+            $('#selections div').click(function (e) {
+                // fix for firefox to get event click
+                var e = window.event || e;
+                var targ = e.target || e.srcElement;
+                //alert('load my action data');
+                //displayMetaDeta();
+
+                console.log($(targ).html());
+                getMovie($(targ)[0].id);
+            });
+        });
+    }
+    
+    function getMovie(genre) {
+        genre = genre.replace(' ', '+');
+        var apiUrl = 'http://brainbowrovicloud.azurewebsites.net/api/Values?typeofsearch=movie&filtercriteria=' + genre;
+        $.ajax({
+            url: apiUrl,
+            dataType: 'jsonp',
+            crossDomain: true,
+            error: function (e) {
+                console.log(e.message);
+            },
+            success: function (data) {
+
+                //display meta data
+
+                movieList = [];
+
+                $.each(data.searchResponse.results, function (key, val) {
+                    var queryStr = {
+                        'MasterTitle': val.video.masterTitle,
+                        'castUri': val.video.castUri
+                    };
+                    //alert('This is live title from API: ' + queryStr.MasterTitle);
+                    movieList.push(queryStr);
+                });
+
+                console.log(movieList);
+                //display meta data
+
+                displayMetaDeta();
+                //$('#answer').html(queryStr.MasterTitle);
+                $('#clue_label').html(movieList[0].castUri);
+                createInputs(movieList[0]);
 
 
+            }
+        });
+    }
     /*split up movie name to inputs */
 
-    function createInputs() {
+    function createInputs(queryStr) {
 
         var titleArray = queryStr.MasterTitle.split("");
 
@@ -163,85 +237,6 @@ $(document).ready(function () {
             }
         });
 
-    }
-
-
-    function getGenres() {
-        $.getJSON("app/stores/keywords.txt", function (data) {
-
-            $.each(data.genres, function (key, val) {
-
-                var queryStr = {
-                    id: val.id,
-                    name: val.name,
-                    type: val.type
-                };
-
-                keywordList.push(queryStr);
-
-            });
-
-            var count = 1;
-            var displayList = [];
-            for (var i = 0; i < keywordList.length; i++) {
-                var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
-                if ($.inArray(rand, displayList) === -1) {
-                    displayList.push(rand);
-                    $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
-                    count = count + 1;
-                }
-
-                if (count > 5)
-                    break;
-            }
-            $('#selections div').click(function (e) {
-                // fix for firefox to get event click
-                var e = window.event || e;
-                var targ = e.target || e.srcElement;
-                //alert('load my action data');
-                //displayMetaDeta();
-
-                console.log($(targ).html());
-                getMovie($(targ).html());
-            });
-        });
-    }
-    function getMovie(genre) {
-
-        var apiUrl = 'http://brainbowrovicloud.azurewebsites.net/api/Values?typeofsearch=movie&filtercriteria=' + genre;
-        $.ajax({
-            url: apiUrl,
-            dataType: 'jsonp',
-            crossDomain: true,
-            error: function (e) {
-                console.log(e.message);
-            },
-            success: function (data) {
-
-                //display meta data
-
-                movieList = [];
-
-                $.each(data.searchResponse.results, function (key, val) {
-                    queryStr = {
-                        'MasterTitle': val.video.masterTitle,
-                        'castUri': val.video.castUri
-                    };
-                    //alert('This is live title from API: ' + queryStr.MasterTitle);
-                    movieList.push(queryStr);
-                });
-
-                console.log(movieList);
-                //display meta data
-
-                displayMetaDeta();
-                //$('#answer').html(queryStr.MasterTitle);
-                $('#clue_label').html(queryStr.castUri);
-                createInputs();
-
-
-            }
-        });
     }
 
 
