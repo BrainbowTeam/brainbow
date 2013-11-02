@@ -131,12 +131,15 @@ font-size: 20pt;
 
 
 #answer input{
+	font-family:'Londrina Shadow', cursive;
 	font-size: 30pt;
 	text-align: center;
 	width:35px;
+	color:#333;
 	border-color: #fff;
-	-webkit-appearance:none;
 	border-style:none;
+	border: 0px;
+	background: #eded43;
 }
 
 

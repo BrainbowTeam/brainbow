@@ -1,8 +1,7 @@
 $(document).ready(function () {
     
 
-    //auto-tab inputs
-    $(':input').autotab_magic();
+
 
 
      var keywordList = [];
@@ -133,6 +132,29 @@ $(document).ready(function () {
 
 
 
+    /*split up movie name to inputs */
+
+    function createInputs(){
+
+      var titleArray=queryStr.MasterTitle.split("");
+
+      console.log(titleArray.length);
+
+      for (i=0; i<titleArray.length;i++){
+
+        if(titleArray[i]!=""){
+        $('#answer').append('<input type="text" maxlength="1" id="mt_' + i + '">' + titleArray[i]+ '</input>')
+    }
+
+      }
+
+
+    //auto-tab inputs
+    $(':input').autotab_magic();
+
+    }
+
+
 
      function getMovie(genre) {
 
@@ -165,6 +187,7 @@ $(document).ready(function () {
                     displayMetaDeta();
                     $('#answer').html(queryStr.MasterTitle);
                     $('#clue_label').html(queryStr.castUri);
+                    createInputs();
 
 
              }
