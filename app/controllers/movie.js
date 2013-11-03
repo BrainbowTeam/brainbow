@@ -31,7 +31,7 @@ $(document).ready(function () {
             window.scrollTo(0, 1);
         }, 0);
     });
-
+    
     getGenres();
     getMessages();
     
@@ -67,7 +67,7 @@ $(document).ready(function () {
         $('#correct_label').hide();
         $('#hints').hide();
         $('#nav_button').hide();
-        $('footer').hide();
+        $('#footer').hide();
         $('#show_answer').hide();
         $('#selected_genre').hide();
         //getGenres();
@@ -108,7 +108,7 @@ $(document).ready(function () {
         $('#correct_label').show();
         $('#hints').show();
         $('#nav_button').show();
-        $('footer').show();
+        $('#footer').show();
         $('#selected_genre').show();
          $('#show_answer').show();
 
@@ -172,6 +172,7 @@ $(document).ready(function () {
                 if (count > 5)
                     break;
             }
+            $('#footer').show();
             $('#selections div').click(function (e) {
                 // fix for firefox to get event click
                 var e = window.event || e;
