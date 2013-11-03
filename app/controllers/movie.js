@@ -143,11 +143,11 @@ $(document).ready(function () {
     }
 
     function getGenres() {
-        $('#selections div').remove();
+        
         $.getJSON("app/stores/keywords.txt", function (data) {
-
+            keywordList = [];
             $.each(data.genres, function (key, val) {
-
+                
                 var queryStr = {
                     id: val.id,
                     name: val.name,
@@ -160,6 +160,7 @@ $(document).ready(function () {
 
             var count = 1;
             var displayList = [];
+            $('#selections div').remove();
             for (var i = 0; i < keywordList.length; i++) {
                 var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
                 if ($.inArray(rand, displayList) === -1) {
