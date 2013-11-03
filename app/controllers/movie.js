@@ -164,7 +164,7 @@ $(document).ready(function () {
                 var rand = keywordList[Math.floor(Math.random() * keywordList.length)];
                 if ($.inArray(rand, displayList) === -1) {
                     displayList.push(rand);
-                    $('#selections').append('<div id="' + rand.id + '">' + rand.name + '</div>');
+                    $('#selections').append('<div id="' + rand.id + '" class="glass">' + rand.name + '</div>');
                     count = count + 1;
                 }
 
@@ -264,9 +264,9 @@ $(document).ready(function () {
             if (titleArray[i] != " ") {
                 var inputString = '';
                 if (isAlphaNumeric(titleArray[i]) === false) {
-                    inputString = '<input type="text" maxlength="1" id="mt_' + i + '" style="background-color:#98ACC8; color:#fff;" value="' + titleArray[i] + '"></input>';
+                    inputString = '<input type="text" class="glass" maxlength="1" id="mt_' + i + '" style="background-color:#98ACC8; color:#fff;" value="' + titleArray[i] + '"></input>';
                 } else {
-                    inputString = '<input type="text" maxlength="1" id="mt_' + i + '"></input>';
+                    inputString = '<input type="text" class="glass" maxlength="1" id="mt_' + i + '"></input>';
                 }
 
                 $('#answer').append(inputString);
@@ -276,7 +276,7 @@ $(document).ready(function () {
                 if (isMobile.any()) {
                     $('#answer').append('</br>');
                 }
-                $('#answer').append('<input type="text" maxlength="1" id="mt_blank" style="background:#a0cf89;" disabled>' + titleArray[i] + '</input>');
+                $('#answer').append('<input type="text" class="glass" maxlength="1" id="mt_blank" style="background:#a0cf89;" disabled>' + titleArray[i] + '</input>');
 
             }
         }
@@ -305,9 +305,9 @@ $(document).ready(function () {
             $('#clue_label div').remove();
             for (var ca = 0; ca < castLength; ca++) {
                 if (ca === 0)
-                    castNameRole = '<td id="cast" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
+                    castNameRole = '<td id="cast" class="glass" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
                 else {
-                    castNameRole = castNameRole + ' ● ' + '<td id="cast" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
+                    castNameRole = castNameRole + ' ● ' + '<td id="cast" class="glass" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
                 }
             }            
             $('#clue_label').append('<div id="castmember_' + ca + '">' + castNameRole + '</div>');
