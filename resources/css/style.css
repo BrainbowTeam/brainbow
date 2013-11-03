@@ -18,6 +18,11 @@ width:100%;
 height:100%;
 }
 
+Html, body {
+      Padding: 0;
+      Margin: 0;
+      Height: 100%;
+}
 #loader{
 padding-top: 50px;
 text-align: center;
@@ -43,7 +48,7 @@ input[type="text"]{
 }
 
 
-header{
+#header{
 
 font-family: 'Londrina Shadow', cursive;
 font-size: 36pt;
@@ -56,6 +61,28 @@ width:100%;
 
 }
 
+#page {
+      Min-height: 100%;
+      height: 100%;
+      position:relative;
+}
+ 
+#main {
+      Padding-bottom: 75px;   /* This value is the height of your footer */
+}
+ /*#footer{
+	position: relative;
+	display: block;
+	height:40px;
+	text-align: center;
+	background: none;
+}*/
+#footer {
+      Position: absolute;
+      Width: 100%;
+      Bottom: 0;
+      Height: 75px;  /* This value is the height of your footer */
+}
 #countdown{
 
 	font-size: 20pt;
@@ -166,13 +193,7 @@ padding-top:20px;
 	
 }
 
-footer{
-	position: relative;
-	display: block;
-	height:40px;
-	text-align: center;
-	background: none;
-}
+
 
 #show_answer,
 #nav_button{

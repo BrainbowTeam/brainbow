@@ -1,100 +1,86 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Brainbow</title>
- <!-- <link rel="stylesheet" href="css/normalize.css">-->
-  <link rel="stylesheet" href="resources/css/style.css">
-  <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+    <head>
+        <meta charset="utf-8">
+        <title>Brainbow</title>
+         <!-- <link rel="stylesheet" href="css/normalize.css">-->
+        <link rel="stylesheet" href="resources/css/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
-    <script src="lib/jquery-1.10.2.min.js"></script>
-    <script src="lib/md5_2.js"></script>
-    <script src="lib/jquery.autotab-1.1b.js"></script>
-    <script src="lib/jquery.countdown.min.js"></script>
-    <script src="app/controllers/movie.js"></script>
-</head>
-<body>
-
-    <header class="glass" >
+        <script src="lib/jquery-1.10.2.min.js"></script>
+        <script src="lib/md5_2.js"></script>
+        <script src="lib/jquery.autotab-1.1b.js"></script>
+        <script src="lib/jquery.countdown.min.js"></script>
+        <script src="app/controllers/movie.js"></script>
+    </head>
+    <body>
+        <div id="page">
+            <div id="header" class="glass" >
         
-        <div id="main_title" >BrainBow</div>
-        <div id="countdown"></div>
-    </header>
+                <div id="main_title" >BrainBow</div>
+                <div id="countdown"></div>
+            </div>
 
-    <section id="selected_genre" class="glass" >
-    </section>
+            <section id="selected_genre" class="glass" ></section>
 
-    <section id="selections" >
+            <section id="selections" >
 
-        <!--<div id="selection_label"></div>
-        <div id="genre_Action">Action</div>
-        <div id="genre_Westerns">Westerns</div>-->
+                <!--<div id="selection_label"></div>
+                <div id="genre_Action">Action</div>
+                <div id="genre_Westerns">Westerns</div>-->
 
-    </section>
+            </section>
 
-    <div id="loader"> <img src="resources/images/ajax-loader.gif"></div>
-    <section id="answer" class="glass" >
-
+            <div id="loader"> <img src="resources/images/ajax-loader.gif"></div>
+            <section id="answer" class="glass" >
 
 
-        <!--<input id="a_1" type="text" maxlength="1"></input>
-        <input id="a_2" type="text" maxlength="1"></input>
-        <input id="a_3" type="text" maxlength="1"></input>
-        <input id="a_4" type="text" maxlength="1"></input>
-        <input id="a_5" type="text" maxlength="1"></input>
-        <input id="a_6" type="text" maxlength="1"></input>
-        <input id="a_7" type="text" maxlength="1"></input>
-        <input id="a_8" type="text" maxlength="1"></input>
-        <input id="a_9" type="text" maxlength="1"></input>-->
 
-    </section>
+                <!--<input id="a_1" type="text" maxlength="1"></input>
+                <input id="a_2" type="text" maxlength="1"></input>
+                <input id="a_3" type="text" maxlength="1"></input>
+                <input id="a_4" type="text" maxlength="1"></input>
+                <input id="a_5" type="text" maxlength="1"></input>
+                <input id="a_6" type="text" maxlength="1"></input>
+                <input id="a_7" type="text" maxlength="1"></input>
+                <input id="a_8" type="text" maxlength="1"></input>
+                <input id="a_9" type="text" maxlength="1"></input>-->
 
+            </section>
 
-<section id="user_messages" class="glass" >
-  <div id="user_messages_label">
-  Choose genre to begin
-  </div>
+            <section id="user_messages" class="glass" >
+              <div id="user_messages_label">
+                Choose genre to begin
+              </div>
 
-</section>
+            </section>
 
+            <section id="hints" class="glass" >
+                <div id="image_container">    
+                    <div id="closer">x</div>
+                    <div id="c_image"></div>
+                </div>    
+            </section>
 
-<section id="hints" class="glass" >
+            <section id="clue" class="glass" >
+                <div id="clue_label"></div>
+            </section>
 
-<div id="image_container">    
-<div id="closer">x</div>
-<div id="c_image">
-    
+            <section id="correct" class="glass" >
+                <div id="correct_label" class="glass" ></div>
+            </section>
 
-</div>
-</div>    
-</section>
-<section id="clue" class="glass" >
-<div id="clue_label" class="glass" >
+            <div id="footer" class="glass">
+                <div id="buttons">
+                    <div id="show_answer"></div>
+                    <div id="nav_button"></div> 
+                </div>
+            </div>
 
-</div>
+        </div>
 
-</section>
-
-<section id="correct" class="glass" >
-<div id="correct_label" >
-
-</div>
-
-</section>
-
-
-<footer>
-<div id="buttons">
-   
-   <div id="show_answer"></div>
-   <div id="nav_button"></div> 
-   </div>
-</footer>
-
-  
-
-</body>
+    </body>
 </html>
