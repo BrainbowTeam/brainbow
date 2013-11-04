@@ -64,7 +64,7 @@ $(document).ready(function () {
         $('#countdown').countdown({ until: now, format: 'S', compact: true, onExpiry: doneCounting });
     }
 
-
+    $('#image_container').hide();
     /**** reset back to genre choice */
     function resetToGenre() {
 
@@ -136,7 +136,7 @@ $(document).ready(function () {
 
         $('#nav_button').click(function (e) {
             // fix for firefox to get event click
-            var e = window.event || e;
+            e = window.event || e;
             var targ = e.target || e.srcElement;
 
 
@@ -322,11 +322,17 @@ $(document).ready(function () {
             $('#clue_label div').remove();
             for (var ca = 0; ca < castLength; ca++) {
                 if (ca === 0)
-                    castNameRole = '<td id="cast" class="glass" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
+                    castNameRole = castList[ca].name;
                 else {
-                    castNameRole = castNameRole + ' ● ' + '<td id="cast" class="glass" imgSrc="' + castList[ca].thumbnail + '">' + castList[ca].name + "</td>";
+                    castNameRole = castNameRole + ' ● ' + castList[ca].name;
                 }
-            }            
+            }
+            $('#castList').click(function (e) {
+                e = window.event || e;
+                var targ = e.target || e.srcElement;
+                alert($(targ).html());
+            });
+            
             $('#clue_label').append('<div id="castmember_' + ca + '">' + castNameRole + '</div>');
             
         }
@@ -335,6 +341,9 @@ $(document).ready(function () {
 
 //auto-tab inputs
     
+    function castClicked(url) {
+        alert(url);
+    }
     function validateInput(input) {
         var arrayId = input.id.replace('mt_', '');
         var inputValue = input.value;        
