@@ -174,12 +174,7 @@ input[type="text"]{
     padding-bottom:10px;
     width: 100%;
     color:#fff;
-    height: 24pt;
-    text-align: center;
-    
-}
-#clue_label div{
-    cursor: pointer;
+    height: auto;
 }
 
 
@@ -193,8 +188,6 @@ input[type="text"]{
     position: absolute;
     top: 148px;
     background: #fff;
-
-
 }
 
 
@@ -234,10 +227,7 @@ input[type="text"]{
 	color: #000;
 	width: auto;
 }
-#castList {
-    /*float:left;*/
-    text-align: center;
-}
+
 #buttons{
 
 	margin-left: auto;
