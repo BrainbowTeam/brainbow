@@ -32,6 +32,21 @@ $(document).ready(function () {
         }, 0);
     });
     
+    // Load jtweet
+    jtweet.loadTweets();
+
+    // Scroll
+    var scroller = function () {
+        setTimeout(function () {
+            $('#jstwitter .tweet:first').animate({ marginTop: '-85px' },
+                1500, //Adjust the speed of the scroll (1000 = 1 Second)
+                function () {
+                    $(this).detach().appendTo('#jstwitter').removeAttr('style');
+                });
+            scroller();
+        }, 5000);  //Adjust the time before scroll (1000 = 1 Second)
+    };
+    scroller();
     getGenres();
     getMessages();
     
@@ -67,7 +82,7 @@ $(document).ready(function () {
         $('#correct_label').hide();
         $('#hints').hide();
         $('#nav_button').hide();
-        $('#footer').hide();
+        //$('#footer').hide();
         $('#show_answer').hide();
         $('#selected_genre').hide();
         //getGenres();
@@ -108,7 +123,7 @@ $(document).ready(function () {
         $('#correct_label').show();
         $('#hints').show();
         $('#nav_button').show();
-        $('#footer').show();
+        //$('#footer').show();
         $('#selected_genre').show();
          $('#show_answer').show();
 
@@ -172,7 +187,7 @@ $(document).ready(function () {
                 if (count > 5)
                     break;
             }
-            $('#footer').show();
+            //$('#footer').show();
             $('#selections div').click(function (e) {
                 // fix for firefox to get event click
                 var e = window.event || e;

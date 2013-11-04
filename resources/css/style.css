@@ -5,27 +5,23 @@ font-family: 'Londrina Shadow', cursive;
 
 
 html{
-width:100%;
-height:100%;
+    width:100%;
+    height:100%;
 }
 
 body{
-position: relative;
-margin: 0px;
-font-family:'Conv_MuseoSans';
-text-align:center;
-width:100%;
-height:100%;
+    position: relative;
+    margin: 0px;
+    font-family:'Conv_MuseoSans';
+    text-align:center;
+    width:100%;
+    height:100%;
 }
 
-Html, body {
-      Padding: 0;
-      Margin: 0;
-      Height: 100%;
-}
+
 #loader{
-padding-top: 50px;
-text-align: center;
+    padding-top: 50px;
+    text-align: center;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -50,26 +46,26 @@ input[type="text"]{
 
 #header{
 
-font-family: 'Londrina Shadow', cursive;
-font-size: 36pt;
-padding-bottom:15px; 
-padding-top:15px;
-background:#1d5193;
-color:#fff;
-width:100%;
-
-
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 36pt;
+    padding-bottom:15px; 
+    padding-top:15px;
+    background:#1d5193;
+    color:#fff;
+    width:100%;
 }
 
-#page {
-      Min-height: 100%;
-      height: 100%;
+
+ #page {
+      Min-height: 100%;  /* for all other browsers */
+      height: 100%;  /* for IE */
       position:relative;
 }
- 
 #main {
-      Padding-bottom: 75px;   /* This value is the height of your footer */
+      /*Padding-bottom: 20%;*/   /* This value is the height of your footer */
 }
+
+
  /*#footer{
 	position: relative;
 	display: block;
@@ -77,12 +73,15 @@ width:100%;
 	text-align: center;
 	background: none;
 }*/
-#footer {
+/*#footer {
       Position: absolute;
       Width: 100%;
       Bottom: 0;
-      Height: 75px;  /* This value is the height of your footer */
-}
+      /* Height: 75px;  This value is the height of your footer 
+      background:#1d5193;
+
+}*/
+
 #countdown{
 
 	font-size: 20pt;
@@ -92,21 +91,21 @@ width:100%;
 
 
 #selections div {
-padding-top:10px;
-padding-bottom: 10px; 
-color:#fff;
-width:100%;
-cursor: pointer;
+    padding-top:10px;
+    padding-bottom: 10px; 
+    color:#fff;
+    width:100%;
+    cursor: pointer;
 
 }
 
 #selected_genre{
-padding-top:10px;
-padding-bottom: 10px; 
-color:#fff;
-width:100%;
-background:#98acc8;
-font-size: 24pt; 
+    padding-top:10px;
+    padding-bottom: 10px; 
+    color:#fff;
+    width:100%;
+    background:#98acc8;
+    font-size: 24pt; 
 
 }
 
@@ -130,15 +129,25 @@ background:#d2b951;
 }
 
 #answer{
-padding-bottom:10px;
-padding-top:10px; 
-background:#a0cf89;
-width:100%;
+    padding-bottom:10px;
+    padding-top:10px; 
+    background:#a0cf89;
+    width:100%;
 
 }
 
+.glassHeader {
+    border-radius:  10px 10px 0px 0px;
+	border:         1px solid rgba(0,0,0,0.5);	
+	box-shadow:     0px 2px 6px rgba(0,0,0,0.5), 
+				    inset 0 1px rgba(255,255,255,0.3), /* top white glass effect without shadow*/
+				    inset 0 5px 10px rgba(0,0,0,.8), /* top white glass effect without shadow*/
+				    inset 0 20px rgba(255,255,255,0.2), /* top white glass effect*/
+				    inset 0 20px 20px rgba(255,255,255,0.25), /* top white glass effect shadow*/
+				    inset 0 -15px 30px rgba(0,0,0,0.3);
+}
 .glass {
-    border-radius:  10px;
+    border-radius:  0px;
 	border:         1px solid rgba(0,0,0,0.5);	
 	box-shadow:     0px 2px 6px rgba(0,0,0,0.5), 
 				    inset 0 1px rgba(255,255,255,0.3), /* top white glass effect without shadow*/
@@ -148,32 +157,42 @@ width:100%;
 				    inset 0 -15px 30px rgba(0,0,0,0.3);
 }
 
+.glassFooter {
+    border-radius:  10px;
+	border:         1px solid rgba(0,0,0,0.5);	
+	box-shadow:     0px 2px 6px rgba(0,0,0,0.5), 
+				    inset 0 1px rgba(255,255,255,0.3), /* top white glass effect without shadow*/
+				    inset 0 5px 10px rgba(0,0,0,.8), /* top white glass effect without shadow*/
+				    inset 0 20px rgba(255,255,255,0.2), /* top white glass effect*/
+				    inset 0 20px 20px rgba(255,255,255,0.25), /* top white glass effect shadow*/
+				    inset 0 -15px 30px rgba(0,0,0,0.3);
+}
 #clue{
-background:#e57640;
-width: 100%;
-font-size: 24pt;
-color:#fff; 
+    background:#e57640;
+    width: 100%;
+    font-size: 24pt;
+    color:#fff; 
 }
 
 #clue_label{
-padding-top:10px; 
-padding-bottom:10px;
-width: 100%;
-color:#fff;
+    padding-top:10px; 
+    padding-bottom:10px;
+    width: 100%;
+    color:#fff;
 }
 
 
 
 #correct_label{
-font-family: 'Londrina Shadow', cursive;
-font-size:30pt;
-color: #359c42;
-padding-top:10px; 
-padding-bottom:10px;
-width: 100%;
-position: absolute;
-top: 148px;
-background: #fff;
+    font-family: 'Londrina Shadow', cursive;
+    font-size:30pt;
+    color: #359c42;
+    padding-top:10px; 
+    padding-bottom:10px;
+    width: 100%;
+    position: absolute;
+    top: 148px;
+    background: #fff;
 
 
 }
@@ -290,24 +309,96 @@ font-size: 20pt;
 	padding: 0px;
 	padding-bottom: 5px;
 	padding-top: 5px;
-	
-
 	}
 
 
 #answer input#mt_blank{
-width:20px;
-}	
+    width:20px;
+    }	
 
-#hints{
-	font-size:12pt;
-	font-family: 'Conv_MuseoSans';
+    #hints{
+	    font-size:12pt;
+	    font-family: 'Conv_MuseoSans';
+    }
+
+    #user_messages{
+	    font-size: 20pt;
+    }
 
 }
 
-#user_messages{
-	font-size: 20pt;
+Html, body {
+    Height: 100%;
+    overflow:hidden;
+}
+.wrapper {
+    overflow-y:scroll;
+    height: 80%;
+    overflow-x: hidden;
+    padding: 1%;
+}
+.footer {
+    position:fixed;
+    bottom: 0;
+    height: 17.5%;
+    background: #0ff;
+    width: 99%;
 }
 
+.twitterImg{
+    left: 0;
+    height: 100%;
+    width: 80px;
+    background:#98acc8;
 }
 
+#twitterImg img {
+    position: relative;
+    height: 100%;
+    width: auto;
+}
+
+#twitterUser {
+    position: absolute;
+    padding: 3px;
+    height: 30%;
+    left: 80px;
+    top: 5px;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Adamina);
+
+#tweetFeed {
+    width: 500px;
+    margin: 20px;
+}
+
+#jstwitter {
+    width: 500px;
+    height: 85px;
+    font-family: Adamina;
+    font-size: 14px;
+    color: #444;
+    overflow: hidden;
+}
+ 
+#jstwitter .tweet {
+    margin: 0;
+    height: 85px;
+}
+ 
+#jstwitter .tweet a {
+    text-decoration: none;
+    color: #f26222;
+    font-size: 12px;
+}
+    #jstwitter .tweet a:hover {
+        text-decoration: underline;
+        color: #b15030;
+    }
+ 
+#jstwitter .tweet .time {
+    font-size: 10px;
+    font-style: italic;
+    color: #8a98b6;
+}
